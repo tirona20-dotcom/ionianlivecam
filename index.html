@@ -10,11 +10,9 @@
       --bg:#0b1d2e;
       --bg2:#0f253a;
       --card:#162f49;
-      --card2:#1b3856;
       --line:rgba(255,255,255,.10);
       --text:#f4f7fb;
       --muted:#c5d5e4;
-      --accent:#d9b26a;
       --accent2:#8fd4ff;
       --danger:#e44545;
     }
@@ -26,7 +24,8 @@
       color: var(--text);
     }
     a { color:inherit; text-decoration:none; }
-    .wrap { max-width:1200px; margin:0 auto; padding:0 18px 42px; }
+    .wrap { max-width:1200px; margin:0 auto; padding:0 18px 40px; }
+
     .nav {
       position:sticky; top:0; z-index:50;
       background:rgba(11,29,46,.88);
@@ -128,8 +127,8 @@
     }
     .sunrise-box {
       padding:14px 16px; border-radius:18px;
-      background:linear-gradient(180deg, rgba(217,178,106,.18), rgba(255,255,255,.04));
-      border:1px solid rgba(217,178,106,.28);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid var(--line);
     }
     .sunrise-box strong { display:block; font-size:16px; margin-bottom:6px; }
     .sunrise-box span { color:var(--muted); font-size:14px; line-height:1.45; }
@@ -197,9 +196,8 @@
         <small>Vlore • Lungomare • Sazan Island</small>
       </div>
       <div class="nav-links">
-        <a href="#live">Live View</a>
+        <a href="#live">Live</a>
         <a href="#weather">Weather</a>
-        <a href="#about">About View</a>
         <a href="#map">Map</a>
         <a class="yt-btn" href="https://youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener">Watch on YouTube</a>
       </div>
@@ -226,7 +224,7 @@
             <h1>Vlore Port Webcam</h1>
             <p>
               Live view across Lungomare, Vlore Bay, the port area and the sea line toward Sazan Island.
-              This page keeps the camera, weather, sunrise timing and location together in one clean place.
+              Weather, sunrise timing and location are kept here without clutter.
             </p>
           </div>
         </div>
@@ -234,9 +232,7 @@
         <aside class="panel side" id="weather">
           <div class="side-top">
             <h2>Live weather</h2>
-            <p>
-              Real conditions for Vlore Bay, updated automatically.
-            </p>
+            <p>Real conditions for Vlore Bay, updated automatically.</p>
           </div>
 
           <div class="grid2">
@@ -270,21 +266,18 @@
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section">
       <div class="section-head">
-        <h2>About this view</h2>
-        <p>Only what supports the live camera.</p>
+        <h2>View details</h2>
+        <p>Simple and direct.</p>
       </div>
 
       <div class="content-grid">
         <div class="panel card">
-          <h3>What people are looking at</h3>
+          <h3>What the camera captures</h3>
           <p>
-            This camera covers the coastal character of Vlore rather than one single static landmark. It works because the mood changes through the day:
-            calmer mornings, brighter sea light, ferry and harbour movement, sunset colour and night reflections over the bay.
-          </p>
-          <p>
-            The stream is useful for two types of viewers: people checking Vlore as a travel destination, and people using the sea view as background ambience.
+            This live camera shows the changing atmosphere of Vlore Bay, from calm mornings and bright sea light to harbour activity,
+            sunset colour and night reflections. It offers a direct view of Lungomare, the port area and the sea line toward Sazan Island.
           </p>
 
           <div class="facts">
@@ -305,9 +298,7 @@
 
         <div class="panel card" id="map">
           <h3>Location map</h3>
-          <p>
-            Vlore, Albania.
-          </p>
+          <p>Vlore, Albania.</p>
           <div class="map-wrap">
             <iframe
               src="https://www.openstreetmap.org/export/embed.html?bbox=19.4660%2C40.4320%2C19.5050%2C40.4585&layer=mapnik&marker=40.4460%2C19.4865"
