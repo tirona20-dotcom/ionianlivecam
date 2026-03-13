@@ -1,377 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ionian LiveCam - Vlore Port Webcam</title>
-  <meta name="description" content="Live webcam from Vlore, Albania showing Lungomare, Vlore Bay, the port and Sazan Island. Near-live camera snapshot, weather, sunrise, sunset and map.">
-  <style>
-    :root {
-      --bg:#0b1d2e;
-      --bg2:#0f253a;
-      --card:#162f49;
-      --line:rgba(255,255,255,.10);
-      --text:#f4f7fb;
-      --muted:#c5d5e4;
-      --accent:#8fd4ff;
-      --danger:#e44545;
-    }
-    * { box-sizing:border-box; }
-    html,body {
-      margin:0; padding:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, var(--bg), var(--bg2) 55%, #122b43);
-      color: var(--text);
-    }
-    a { color:inherit; text-decoration:none; }
-    .wrap { max-width:1200px; margin:0 auto; padding:0 18px 40px; }
-    .nav {
-      position:sticky; top:0; z-index:50;
-      background:rgba(11,29,46,.88);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner {
-      max-width:1200px; margin:0 auto; padding:14px 18px;
-      display:flex; justify-content:space-between; align-items:center; gap:18px;
-    }
-    .brand { font-size:24px; font-weight:800; line-height:1.05; }
-    .brand small { display:block; font-size:12px; color:var(--muted); font-weight:700; margin-top:4px; }
-    .nav-links { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .nav-links a {
-      padding:10px 12px; border-radius:999px; color:var(--muted); font-weight:700; font-size:14px;
-    }
-    .nav-links a:hover { background:rgba(255,255,255,.06); color:#fff; }
-    .yt-btn {
-      background:linear-gradient(180deg, #ff5959, #d62e2e);
-      color:#fff !important;
-      border:1px solid rgba(255,255,255,.12);
-    }
-    .hero { padding:24px 0 14px; }
-    .hero-grid { display:grid; grid-template-columns:1.45fr .9fr; gap:18px; }
-    .panel {
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-      border-radius:22px;
-      box-shadow:0 12px 38px rgba(0,0,0,.22);
-      overflow:hidden;
-    }
-    .block-head {
-      display:flex; justify-content:space-between; align-items:center;
-      padding:12px 14px; color:var(--muted); border-bottom:1px solid var(--line); font-size:14px;
-    }
-    .live-dot {
-      display:inline-block; width:9px; height:9px; border-radius:50%;
-      background:var(--danger); margin-right:8px;
-      box-shadow:0 0 0 5px rgba(228,69,69,.13);
-      vertical-align:middle;
-    }
-    .media-wrap { aspect-ratio:16/9; background:#000; }
-    .media-wrap iframe, .media-wrap img {
-      width:100%; height:100%; border:0; display:block; object-fit:cover;
-    }
-    .hero-copy { padding:18px 18px 22px; border-top:1px solid var(--line); }
-    .hero-copy h1 { margin:0 0 10px; font-size:40px; line-height:1.05; }
-    .hero-copy p { margin:0; color:var(--muted); font-size:18px; line-height:1.55; }
-    .side { padding:16px; display:flex; flex-direction:column; gap:14px; }
-    .side-top h2 { margin:0 0 8px; font-size:28px; }
-    .side-top p { margin:0; color:var(--muted); font-size:16px; line-height:1.55; }
-    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    .mini {
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:14px;
-      min-height:108px;
-    }
-    .mini h3 { margin:0 0 8px; font-size:13px; letter-spacing:.4px; text-transform:uppercase; color:var(--muted); }
-    .big { font-size:28px; font-weight:800; margin:2px 0 6px; }
-    .small { color:var(--muted); font-size:14px; line-height:1.45; }
-    .sunrise-box {
-      padding:14px 16px; border-radius:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border:1px solid var(--line);
-    }
-    .sunrise-box strong { display:block; font-size:16px; margin-bottom:6px; }
-    .sunrise-box span { color:var(--muted); font-size:14px; line-height:1.45; }
-    .section { padding-top:18px; }
-    .section-head {
-      display:flex; justify-content:space-between; align-items:end; gap:12px; margin:0 0 12px;
-    }
-    .section-head h2 { margin:0; font-size:30px; }
-    .section-head p { margin:0; color:var(--muted); }
-    .content-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-    .card { padding:20px; }
-    .card h3 { margin:0 0 10px; font-size:22px; }
-    .card p { margin:0 0 12px; color:var(--muted); font-size:17px; line-height:1.6; }
-    .facts { display:grid; gap:12px; margin-top:12px; }
-    .fact {
-      padding:14px 16px; border-radius:16px; background:rgba(255,255,255,.05); border:1px solid var(--line);
-    }
-    .fact strong { display:block; margin-bottom:5px; }
-    .map-wrap { border:1px solid var(--line); border-radius:18px; overflow:hidden; }
-    .map-wrap iframe { width:100%; height:380px; border:0; display:block; }
-    .footer { padding-top:18px; text-align:center; color:var(--muted); font-size:14px; }
-    .pill { display:inline-block; padding:8px 11px; border-radius:999px; background:rgba(255,255,255,.08); }
-    .status { color:var(--accent); font-weight:700; }
-    @media (max-width: 980px) {
-      .hero-grid, .content-grid { grid-template-columns:1fr; }
-      .grid2 { grid-template-columns:1fr 1fr; }
-      .hero-copy h1 { font-size:34px; }
-    }
-    @media (max-width: 640px) {
-      .nav-links a:not(.yt-btn) { display:none; }
-      .grid2 { grid-template-columns:1fr; }
-      .hero-copy h1 { font-size:30px; }
-      .wrap { padding:0 14px 34px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ionian LiveCam – Vlore Port Webcam</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0b1d2e;
+color:white;
+}
+
+header{
+background:#081521;
+padding:18px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+header h1{
+margin:0;
+font-size:22px;
+}
+
+header a{
+background:#e53935;
+padding:10px 16px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.player{
+width:100%;
+aspect-ratio:16/9;
+background:black;
+border-radius:10px;
+overflow:hidden;
+margin-bottom:25px;
+}
+
+.player iframe{
+width:100%;
+height:100%;
+border:0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.card{
+background:#12283d;
+border-radius:10px;
+padding:20px;
+}
+
+.card h2{
+margin-top:0;
+}
+
+.map iframe{
+width:100%;
+height:350px;
+border:0;
+border-radius:8px;
+}
+
+.footer{
+text-align:center;
+padding:30px 10px;
+opacity:0.7;
+}
+</style>
 </head>
+
 <body>
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        Ionian LiveCam
-        <small>Vlore • Lungomare • Sazan Island</small>
-      </div>
-      <div class="nav-links">
-        <a href="#live">Live</a>
-        <a href="#snapshot">Snapshot</a>
-        <a href="#weather">Weather</a>
-        <a href="#map">Map</a>
-        <a class="yt-btn" href="https://youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </div>
-  </div>
 
-  <div class="wrap">
-    <section class="hero" id="live">
-      <div class="hero-grid">
-        <div class="panel">
-          <div class="block-head">
-            <div><span class="live-dot"></span>Live stream</div>
-            <div id="clockLabel">Vlore local time</div>
-          </div>
-          <div class="media-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q"
-              title="Ionian LiveCam YouTube stream"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="hero-copy">
-            <h1>Vlore Port Webcam</h1>
-            <p>
-              Live view across Lungomare, Vlore Bay, the port area and the sea line toward Sazan Island.
-              Weather, snapshot and location are kept here without clutter.
-            </p>
-          </div>
-        </div>
+<header>
+<h1>Ionian LiveCam</h1>
+<a href="https://youtube.com/@IonianLiveCam/live" target="_blank">Watch on YouTube</a>
+</header>
 
-        <aside class="panel side" id="weather">
-          <div class="side-top">
-            <h2>Live weather</h2>
-            <p>Real conditions for Vlore Bay, updated automatically.</p>
-          </div>
+<div class="container">
 
-          <div class="grid2">
-            <div class="mini">
-              <h3>Temperature</h3>
-              <div class="big" id="tempNow">Loading...</div>
-              <div class="small" id="weatherText">Waiting for weather data</div>
-            </div>
-            <div class="mini">
-              <h3>Wind</h3>
-              <div class="big" id="windNow">Loading...</div>
-              <div class="small" id="windDir">Waiting for wind data</div>
-            </div>
-            <div class="mini">
-              <h3>Sunrise</h3>
-              <div class="big" id="sunriseTime">Loading...</div>
-              <div class="small" id="sunriseCountdown">Waiting for sunrise data</div>
-            </div>
-            <div class="mini">
-              <h3>Sunset</h3>
-              <div class="big" id="sunsetTime">Loading...</div>
-              <div class="small" id="weatherStatus"><span class="status">Live source:</span> Open-Meteo</div>
-            </div>
-          </div>
+<div class="player">
+<iframe src="https://www.youtube.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q" allowfullscreen></iframe>
+</div>
 
-          <div class="sunrise-box">
-            <strong>Sunrise camera move</strong>
-            <span>At 05:40 the camera turns toward Sazan Island to catch the first sunrise light over the sea.</span>
-          </div>
-        </aside>
-      </div>
-    </section>
+<div class="grid">
 
-    <section class="section" id="snapshot">
-      <div class="section-head">
-        <h2>Near-live camera snapshot</h2>
-        <p>Auto-refresh image from the Dahua camera.</p>
-      </div>
-      <div class="panel">
-        <div class="block-head">
-          <div><span class="live-dot"></span>Latest image</div>
-          <div id="snapshotStatus">Refreshing every 10 seconds</div>
-        </div>
-        <div class="media-wrap">
-          <img id="snapshotImage" alt="Ionian LiveCam snapshot" src="http://185.66.128.45/cgi-bin/snapshot.cgi?t=0">
-        </div>
-        <div class="card">
-          <p>
-            This block pulls a still image directly from the Dahua snapshot endpoint. If your browser is not authenticated to the camera,
-            the image may fail publicly. In that case the right fix is a server relay, not exposing the camera directly.
-          </p>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<h2>Live Weather – Vlore</h2>
+<p id="weather">Loading weather…</p>
+</div>
 
-    <section class="section">
-      <div class="section-head">
-        <h2>View details</h2>
-        <p>Simple and direct.</p>
-      </div>
+<div class="card map">
+<h2>Location</h2>
+<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=19.4660%2C40.4320%2C19.5050%2C40.4585&layer=mapnik&marker=40.4460%2C19.4865"></iframe>
+</div>
 
-      <div class="content-grid">
-        <div class="panel card">
-          <h3>What the camera captures</h3>
-          <p>
-            This live camera shows the changing atmosphere of Vlore Bay, from calm mornings and bright sea light to harbour activity,
-            sunset colour and night reflections. It offers a direct view of Lungomare, the port area and the sea line toward Sazan Island.
-          </p>
+</div>
 
-          <div class="facts">
-            <div class="fact">
-              <strong>Main view</strong>
-              Lungomare waterfront, Vlore Bay and the port atmosphere.
-            </div>
-            <div class="fact">
-              <strong>Best moments</strong>
-              First light, evening glow, night reflections and weather changes over the sea.
-            </div>
-            <div class="fact">
-              <strong>Direct stream</strong>
-              <a href="https://youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" style="color:var(--accent)">youtube.com/@IonianLiveCam/live</a>
-            </div>
-          </div>
-        </div>
+<div class="card" style="margin-top:20px">
+<h2>About this camera</h2>
+<p>
+This live webcam shows Vlore Bay, the Lungomare promenade and the sea view toward Sazan Island.
+The camera runs 24/7 and captures sunrise light, harbour activity, sunsets and night reflections across the Ionian Sea.
+</p>
+</div>
 
-        <div class="panel card" id="map">
-          <h3>Location map</h3>
-          <p>Vlore, Albania.</p>
-          <div class="map-wrap">
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=19.4660%2C40.4320%2C19.5050%2C40.4585&layer=mapnik&marker=40.4460%2C19.4865"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <div class="footer">
-      <div class="pill">IonianLiveCam.com</div>
-    </div>
-  </div>
+<div class="footer">
+IonianLiveCam.com
+</div>
 
-  <script>
-    const LAT = 40.4460;
-    const LON = 19.4865;
-    const SNAPSHOT_URL = "http://185.66.128.45/cgi-bin/snapshot.cgi";
+<script>
 
-    function pad(n) {
-      return String(n).padStart(2, '0');
-    }
+const LAT = 40.4460;
+const LON = 19.4865;
 
-    function fmt(d) {
-      return pad(d.getHours()) + ":" + pad(d.getMinutes());
-    }
+async function loadWeather(){
 
-    function updateClock() {
-      const txt = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/Tirane',
-        weekday: 'short',
-        day: '2-digit',
-        month: 'short',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      }).format(new Date());
-      document.getElementById('clockLabel').textContent = txt + " • Vlore local time";
-    }
+try{
 
-    const weatherNames = {
-      0:"Clear sky", 1:"Mainly clear", 2:"Partly cloudy", 3:"Overcast",
-      45:"Fog", 48:"Rime fog", 51:"Light drizzle", 53:"Drizzle", 55:"Dense drizzle",
-      61:"Slight rain", 63:"Rain", 65:"Heavy rain", 71:"Snow",
-      80:"Rain showers", 95:"Thunderstorm"
-    };
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,wind_speed_10m&timezone=Europe%2FTirane`
 
-    function compass(deg) {
-      const dirs = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
-      const i = Math.floor((deg / 22.5) + 0.5) % 16;
-      return dirs[i];
-    }
+const r = await fetch(url)
+const d = await r.json()
 
-    function updateSunriseCountdown(sunrise) {
-      const now = new Date();
-      const el = document.getElementById('sunriseCountdown');
-      const diff = sunrise - now;
-      if (diff > 0) {
-        const h = Math.floor(diff / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        el.textContent = "Next sunrise in " + h + "h " + m + "m";
-      } else {
-        el.textContent = "Today's sunrise already passed";
-      }
-    }
+const temp = Math.round(d.current.temperature_2m)
+const wind = Math.round(d.current.wind_speed_10m)
 
-    async function loadWeather() {
-      try {
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,weather_code,wind_speed_10m,wind_direction_10m&daily=sunrise,sunset&timezone=Europe%2FTirane`;
-        const res = await fetch(url, { cache: 'no-store' });
-        const data = await res.json();
+document.getElementById("weather").innerHTML =
+temp + "°C • Wind " + wind + " km/h"
 
-        const temp = Math.round(data.current.temperature_2m);
-        const code = data.current.weather_code;
-        const wind = Math.round(data.current.wind_speed_10m);
-        const dir = Math.round(data.current.wind_direction_10m);
-        const sunrise = new Date(data.daily.sunrise[0]);
-        const sunset = new Date(data.daily.sunset[0]);
+}catch(e){
 
-        document.getElementById('tempNow').textContent = temp + "°C";
-        document.getElementById('weatherText').textContent = weatherNames[code] || "Current conditions";
-        document.getElementById('windNow').textContent = wind + " km/h";
-        document.getElementById('windDir').textContent = "Direction: " + compass(dir);
-        document.getElementById('sunriseTime').textContent = fmt(sunrise);
-        document.getElementById('sunsetTime').textContent = fmt(sunset);
-        updateSunriseCountdown(sunrise);
-      } catch (e) {
-        document.getElementById('tempNow').textContent = "Unavailable";
-        document.getElementById('weatherText').textContent = "Weather failed to load";
-        document.getElementById('windNow').textContent = "Unavailable";
-        document.getElementById('windDir').textContent = "Try refresh later";
-        document.getElementById('sunriseTime').textContent = "Unavailable";
-        document.getElementById('sunriseCountdown').textContent = "No sunrise data";
-        document.getElementById('sunsetTime').textContent = "Unavailable";
-        document.getElementById('weatherStatus').innerHTML = '<span class="status">Status:</span> weather not loaded';
-      }
-    }
+document.getElementById("weather").innerHTML="Weather unavailable"
 
-    function refreshSnapshot() {
-      const img = document.getElementById('snapshotImage');
-      img.src = SNAPSHOT_URL + "?t=" + Date.now();
-    }
+}
 
-    updateClock();
-    setInterval(updateClock, 30000);
-    loadWeather();
-    setInterval(loadWeather, 600000);
-    refreshSnapshot();
-    setInterval(refreshSnapshot, 10000);
-  </script>
+}
+
+loadWeather()
+
+</script>
+
 </body>
 </html>
