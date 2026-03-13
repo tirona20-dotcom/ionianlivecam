@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ionian LiveCam - Vlore Port Webcam</title>
-  <meta name="description" content="Live webcam from Vlore, Albania showing Lungomare, Vlore Bay, the port and Sazan Island. Live weather, sunrise, sunset and map.">
+  <meta name="description" content="Live webcam from Vlore, Albania showing Lungomare, Vlore Bay, the port and Sazan Island. Near-live camera snapshot, weather, sunrise, sunset and map.">
   <style>
     :root {
       --bg:#0b1d2e;
@@ -13,7 +13,7 @@
       --line:rgba(255,255,255,.10);
       --text:#f4f7fb;
       --muted:#c5d5e4;
-      --accent2:#8fd4ff;
+      --accent:#8fd4ff;
       --danger:#e44545;
     }
     * { box-sizing:border-box; }
@@ -25,7 +25,6 @@
     }
     a { color:inherit; text-decoration:none; }
     .wrap { max-width:1200px; margin:0 auto; padding:0 18px 40px; }
-
     .nav {
       position:sticky; top:0; z-index:50;
       background:rgba(11,29,46,.88);
@@ -36,15 +35,9 @@
       max-width:1200px; margin:0 auto; padding:14px 18px;
       display:flex; justify-content:space-between; align-items:center; gap:18px;
     }
-    .brand {
-      font-size:24px; font-weight:800; line-height:1.05;
-    }
-    .brand small {
-      display:block; font-size:12px; color:var(--muted); font-weight:700; margin-top:4px;
-    }
-    .nav-links {
-      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-    }
+    .brand { font-size:24px; font-weight:800; line-height:1.05; }
+    .brand small { display:block; font-size:12px; color:var(--muted); font-weight:700; margin-top:4px; }
+    .nav-links { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
     .nav-links a {
       padding:10px 12px; border-radius:999px; color:var(--muted); font-weight:700; font-size:14px;
     }
@@ -54,11 +47,8 @@
       color:#fff !important;
       border:1px solid rgba(255,255,255,.12);
     }
-
     .hero { padding:24px 0 14px; }
-    .hero-grid {
-      display:grid; grid-template-columns:1.45fr .9fr; gap:18px;
-    }
+    .hero-grid { display:grid; grid-template-columns:1.45fr .9fr; gap:18px; }
     .panel {
       background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
       border:1px solid var(--line);
@@ -66,7 +56,7 @@
       box-shadow:0 12px 38px rgba(0,0,0,.22);
       overflow:hidden;
     }
-    .video-head {
+    .block-head {
       display:flex; justify-content:space-between; align-items:center;
       padding:12px 14px; color:var(--muted); border-bottom:1px solid var(--line); font-size:14px;
     }
@@ -76,39 +66,17 @@
       box-shadow:0 0 0 5px rgba(228,69,69,.13);
       vertical-align:middle;
     }
-    .video-wrap {
-      aspect-ratio:16/9;
-      background:#000;
+    .media-wrap { aspect-ratio:16/9; background:#000; }
+    .media-wrap iframe, .media-wrap img {
+      width:100%; height:100%; border:0; display:block; object-fit:cover;
     }
-    .video-wrap iframe {
-      width:100%; height:100%; border:0; display:block;
-    }
-    .hero-copy {
-      padding:18px 18px 22px;
-      border-top:1px solid var(--line);
-    }
-    .hero-copy h1 {
-      margin:0 0 10px; font-size:40px; line-height:1.05;
-    }
-    .hero-copy p {
-      margin:0; color:var(--muted); font-size:18px; line-height:1.55;
-    }
-
-    .side {
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .side-top h2 {
-      margin:0 0 8px; font-size:28px;
-    }
-    .side-top p {
-      margin:0; color:var(--muted); font-size:16px; line-height:1.55;
-    }
-    .grid2 {
-      display:grid; grid-template-columns:1fr 1fr; gap:12px;
-    }
+    .hero-copy { padding:18px 18px 22px; border-top:1px solid var(--line); }
+    .hero-copy h1 { margin:0 0 10px; font-size:40px; line-height:1.05; }
+    .hero-copy p { margin:0; color:var(--muted); font-size:18px; line-height:1.55; }
+    .side { padding:16px; display:flex; flex-direction:column; gap:14px; }
+    .side-top h2 { margin:0 0 8px; font-size:28px; }
+    .side-top p { margin:0; color:var(--muted); font-size:16px; line-height:1.55; }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .mini {
       background:rgba(255,255,255,.05);
       border:1px solid var(--line);
@@ -116,15 +84,9 @@
       padding:14px;
       min-height:108px;
     }
-    .mini h3 {
-      margin:0 0 8px; font-size:13px; letter-spacing:.4px; text-transform:uppercase; color:var(--muted);
-    }
-    .big {
-      font-size:28px; font-weight:800; margin:2px 0 6px;
-    }
-    .small {
-      color:var(--muted); font-size:14px; line-height:1.45;
-    }
+    .mini h3 { margin:0 0 8px; font-size:13px; letter-spacing:.4px; text-transform:uppercase; color:var(--muted); }
+    .big { font-size:28px; font-weight:800; margin:2px 0 6px; }
+    .small { color:var(--muted); font-size:14px; line-height:1.45; }
     .sunrise-box {
       padding:14px 16px; border-radius:18px;
       background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
@@ -132,49 +94,26 @@
     }
     .sunrise-box strong { display:block; font-size:16px; margin-bottom:6px; }
     .sunrise-box span { color:var(--muted); font-size:14px; line-height:1.45; }
-
     .section { padding-top:18px; }
     .section-head {
-      display:flex; justify-content:space-between; align-items:end; gap:12px;
-      margin:0 0 12px;
+      display:flex; justify-content:space-between; align-items:end; gap:12px; margin:0 0 12px;
     }
     .section-head h2 { margin:0; font-size:30px; }
     .section-head p { margin:0; color:var(--muted); }
-    .content-grid {
-      display:grid; grid-template-columns:1.05fr .95fr; gap:18px;
-    }
+    .content-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
     .card { padding:20px; }
     .card h3 { margin:0 0 10px; font-size:22px; }
-    .card p {
-      margin:0 0 12px; color:var(--muted); font-size:17px; line-height:1.6;
-    }
-    .facts {
-      display:grid; gap:12px; margin-top:12px;
-    }
+    .card p { margin:0 0 12px; color:var(--muted); font-size:17px; line-height:1.6; }
+    .facts { display:grid; gap:12px; margin-top:12px; }
     .fact {
       padding:14px 16px; border-radius:16px; background:rgba(255,255,255,.05); border:1px solid var(--line);
     }
     .fact strong { display:block; margin-bottom:5px; }
-    .map-wrap {
-      border:1px solid var(--line);
-      border-radius:18px;
-      overflow:hidden;
-    }
-    .map-wrap iframe {
-      width:100%; height:380px; border:0; display:block;
-    }
-    .footer {
-      padding-top:18px; text-align:center; color:var(--muted); font-size:14px;
-    }
-    .pill {
-      display:inline-block; padding:8px 11px; border-radius:999px;
-      background:rgba(255,255,255,.08);
-      margin-bottom:2px;
-    }
-    .status {
-      color:var(--accent2);
-      font-weight:700;
-    }
+    .map-wrap { border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+    .map-wrap iframe { width:100%; height:380px; border:0; display:block; }
+    .footer { padding-top:18px; text-align:center; color:var(--muted); font-size:14px; }
+    .pill { display:inline-block; padding:8px 11px; border-radius:999px; background:rgba(255,255,255,.08); }
+    .status { color:var(--accent); font-weight:700; }
     @media (max-width: 980px) {
       .hero-grid, .content-grid { grid-template-columns:1fr; }
       .grid2 { grid-template-columns:1fr 1fr; }
@@ -197,6 +136,7 @@
       </div>
       <div class="nav-links">
         <a href="#live">Live</a>
+        <a href="#snapshot">Snapshot</a>
         <a href="#weather">Weather</a>
         <a href="#map">Map</a>
         <a class="yt-btn" href="https://youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener">Watch on YouTube</a>
@@ -208,11 +148,11 @@
     <section class="hero" id="live">
       <div class="hero-grid">
         <div class="panel">
-          <div class="video-head">
+          <div class="block-head">
             <div><span class="live-dot"></span>Live stream</div>
             <div id="clockLabel">Vlore local time</div>
           </div>
-          <div class="video-wrap">
+          <div class="media-wrap">
             <iframe
               src="https://www.youtube.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q"
               title="Ionian LiveCam YouTube stream"
@@ -224,7 +164,7 @@
             <h1>Vlore Port Webcam</h1>
             <p>
               Live view across Lungomare, Vlore Bay, the port area and the sea line toward Sazan Island.
-              Weather, sunrise timing and location are kept here without clutter.
+              Weather, snapshot and location are kept here without clutter.
             </p>
           </div>
         </div>
@@ -266,6 +206,28 @@
       </div>
     </section>
 
+    <section class="section" id="snapshot">
+      <div class="section-head">
+        <h2>Near-live camera snapshot</h2>
+        <p>Auto-refresh image from the Dahua camera.</p>
+      </div>
+      <div class="panel">
+        <div class="block-head">
+          <div><span class="live-dot"></span>Latest image</div>
+          <div id="snapshotStatus">Refreshing every 10 seconds</div>
+        </div>
+        <div class="media-wrap">
+          <img id="snapshotImage" alt="Ionian LiveCam snapshot" src="http://185.66.128.45/cgi-bin/snapshot.cgi?t=0">
+        </div>
+        <div class="card">
+          <p>
+            This block pulls a still image directly from the Dahua snapshot endpoint. If your browser is not authenticated to the camera,
+            the image may fail publicly. In that case the right fix is a server relay, not exposing the camera directly.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="section-head">
         <h2>View details</h2>
@@ -291,7 +253,7 @@
             </div>
             <div class="fact">
               <strong>Direct stream</strong>
-              <a href="https://youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" style="color:var(--accent2)">youtube.com/@IonianLiveCam/live</a>
+              <a href="https://youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" style="color:var(--accent)">youtube.com/@IonianLiveCam/live</a>
             </div>
           </div>
         </div>
@@ -318,6 +280,7 @@
   <script>
     const LAT = 40.4460;
     const LON = 19.4865;
+    const SNAPSHOT_URL = "http://185.66.128.45/cgi-bin/snapshot.cgi";
 
     function pad(n) {
       return String(n).padStart(2, '0');
@@ -398,10 +361,17 @@
       }
     }
 
+    function refreshSnapshot() {
+      const img = document.getElementById('snapshotImage');
+      img.src = SNAPSHOT_URL + "?t=" + Date.now();
+    }
+
     updateClock();
     setInterval(updateClock, 30000);
     loadWeather();
     setInterval(loadWeather, 600000);
+    refreshSnapshot();
+    setInterval(refreshSnapshot, 10000);
   </script>
 </body>
 </html>
