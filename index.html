@@ -33,6 +33,9 @@
     .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
     .brand{font-weight:800;font-size:1.35rem}
+    .brand-wrap{display:flex;align-items:center;gap:10px}
+.brand-logo{height:38px;width:auto;display:block}
+.brand-text{font-weight:800;font-size:1.35rem;line-height:1}
     .nav-links{display:flex;align-items:center;gap:18px;color:var(--muted);font-weight:600}
     .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-weight:800}
     .btn-main{background:var(--accent);color:#fff;box-shadow:var(--shadow)}
@@ -84,6 +87,8 @@
     .feature p{margin:0;color:var(--muted)}
     .footer{padding:28px 0 50px;color:var(--muted)}
     .footer-box{background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 28px rgba(15,43,70,.05)}
+    .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer-logo{height:34px;width:auto;display:block;opacity:.95}
     @media (max-width:980px){.hero-inner,.grid-2,.facts,.features,.thumb-strip{grid-template-columns:1fr 1fr}.player-card{max-width:none}}
     @media (max-width:720px){.hero-inner{grid-template-columns:1fr;padding:22px;min-height:auto}.thumb-strip,.facts,.grid-2,.features{grid-template-columns:1fr}h1{font-size:2.2rem}.nav-links{display:none}}
   </style>
@@ -91,7 +96,7 @@
 <body>
   <div class="topbar">
     <div class="container nav">
-      <div class="brand">Ionian LiveCam</div>
+      <div class="brand brand-wrap"><img class="brand-logo" src="logo3.png" alt="Ionian LiveCam logo"><span class="brand-text">Ionian LiveCam</span></div>
       <div class="nav-links">
         <a href="#live">Live</a>
         <a href="#about">About</a>
@@ -139,7 +144,7 @@
   <div class="thumb-strip">
     <div class="thumb"><img src="20260324_174207.png" alt="Vlore Bay live view"><span>Vlore Bay</span></div>
     <div class="thumb"><img src="20260324_174312.png" alt="Sunset over Sazan Island"><span>Sazan sunset</span></div>
-    <div class="thumb"><img src="20260324_174420.png" alt="Wide sea and port view"><span>Open sea & port</span></div>
+    <div class="thumb"><img src="port-new.jpeg" alt="Wide sea and port view"><span>Open sea & port</span></div>
     <div class="thumb"><img src="20260324_175722.png" alt="Lungomare and city detail"><span>Lungomare detail</span></div>
   </div>
 
@@ -192,7 +197,7 @@
         </div>
       </div>
       <div class="feature">
-        <img src="20260324_174420.png" alt="Open sea and port activity in Vlore">
+        <img src="port-new.jpeg" alt="Open sea and port activity in Vlore">
         <div class="pad">
           <h3>Sea & port activity</h3>
           <p>Ferries, open water, changing weather and the wider coastal frame from the bay side.</p>
@@ -231,10 +236,11 @@
 
   <section class="footer">
     <div class="container footer-box">
-      <b>Ionian LiveCam</b><br>
+      <div class="footer-brand"><img class="footer-logo" src="logo3.png" alt="Ionian LiveCam logo"><b>Ionian LiveCam</b></div>
       Live webcam from Vlore, Albania — Lungomare, bay, sea, port and Sazan views.<br><br>
       <a href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener"><b>Watch the full live stream on YouTube</b></a>
     </div>
   </section>
 </body>
 </html>
+
