@@ -3,59 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- The title uses the official brand (Vlora Bay Livecam) and the SEO phrase (Live Cam) to help search engines understand the page. -->
   <title>Vlora Bay Livecam | 4K Live Webcam in Vlore, Albania</title>
-  <!-- A concise description summarising what viewers can expect. It mentions Lungomare, the Ionian Sea, Sazan Island, Karaburun and daily waterfront life【291363558989628†L108-L110】【614438075201342†L62-L74】. -->
   <meta name="description" content="Watch Vlora Bay Livecam in 4K from Vlore, Albania. See the Lungomare promenade, Ionian Sea, Sazan Island, Karaburun Peninsula, ferries, paragliders, sunsets and daily waterfront life on our live YouTube stream." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <!-- Keep the canonical link pointing to the main domain. -->
   <link rel="canonical" href="https://ionianlivecam.com/" />
-  <!-- Open Graph tags improve social sharing. -->
+
   <meta property="og:title" content="Vlora Bay Livecam | 4K Live Webcam in Vlore, Albania" />
   <meta property="og:description" content="Live 4K webcam streaming from Vlore Bay. Watch the Lungomare promenade, Ionian Sea, Sazan Island, Karaburun Peninsula and port activity in real time and join the chat on YouTube." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ionianlivecam.com/" />
   <meta property="og:image" content="https://ionianlivecam.com/20260324_174207.jpg" />
+  <meta property="og:image:alt" content="Live webcam view over Vlora Bay in Vlore, Albania" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vlora Bay Livecam | 4K Live Webcam in Vlore, Albania" />
+  <meta name="twitter:description" content="Watch 4K live views from Vlore Bay, Albania, including Lungomare, Sazan Island, ferries, sunsets and daily waterfront life." />
+  <meta name="twitter:image" content="https://ionianlivecam.com/20260324_174207.jpg" />
+  <meta name="twitter:image:alt" content="Live webcam view over Vlora Bay in Vlore, Albania" />
+
   <meta name="theme-color" content="#edf5fb" />
 
-  <!-- Structured data for a live video. The BroadcastEvent flag signals to search engines that this is a live stream【291363558989628†L108-L110】. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Vlora Bay Livecam – 4K Live Webcam in Vlore, Albania",
-    "description": "Live 4K webcam from Vlore Bay, Albania. Watch the Lungomare promenade, Ionian Sea, Sazan Island, Karaburun Peninsula, ferries, paragliders and sunsets, and join the chat on YouTube.",
-    "thumbnailUrl": "https://ionianlivecam.com/20260324_174207.jpg",
-    "uploadDate": "2026-04-09T00:00:00+02:00",
-    "embedUrl": "https://www.youtube.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q",
-    "contentUrl": "https://ionianlivecam.com/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Vlora Bay Livecam",
-      "url": "https://ionianlivecam.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ionianlivecam.com/20260324_174207.jpg"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ionianlivecam.com/#organization",
+        "name": "Vlora Bay Livecam",
+        "url": "https://ionianlivecam.com/",
+        "email": "nightowel03@gmail.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ionianlivecam.com/20260324_174207.jpg"
+        },
+        "sameAs": [
+          "https://www.youtube.com/@IonianLiveCam/live"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ionianlivecam.com/#website",
+        "name": "Vlora Bay Livecam",
+        "url": "https://ionianlivecam.com/",
+        "publisher": {
+          "@id": "https://ionianlivecam.com/#organization"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ionianlivecam.com/#webpage",
+        "url": "https://ionianlivecam.com/",
+        "name": "Vlora Bay Livecam | 4K Live Webcam in Vlore, Albania",
+        "description": "Watch Vlora Bay Livecam in 4K from Vlore, Albania. See the Lungomare promenade, Ionian Sea, Sazan Island, Karaburun Peninsula, ferries, paragliders, sunsets and daily waterfront life on our live YouTube stream.",
+        "isPartOf": {
+          "@id": "https://ionianlivecam.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://ionianlivecam.com/20260324_174207.jpg"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://ionianlivecam.com/#live-video",
+        "name": "Vlora Bay Livecam – 4K Live Webcam in Vlore, Albania",
+        "description": "Live 4K webcam from Vlore Bay, Albania. Watch the Lungomare promenade, Ionian Sea, Sazan Island, Karaburun Peninsula, ferries, paragliders and sunsets, and join the chat on YouTube.",
+        "thumbnailUrl": "https://ionianlivecam.com/20260324_174207.jpg",
+        "uploadDate": "2026-04-09T00:00:00+02:00",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q",
+        "contentUrl": "https://ionianlivecam.com/",
+        "publisher": {
+          "@id": "https://ionianlivecam.com/#organization"
+        },
+        "publication": {
+          "@type": "BroadcastEvent",
+          "isLiveBroadcast": true,
+          "startDate": "2026-04-09T00:00:00+02:00"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ionianlivecam.com/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ionianlivecam.com/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ionianlivecam.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Vlora Bay Livecam live 24/7?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Vlora Bay Livecam streams continuously from Vlore, Albania. The full stream is available on YouTube."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can I see on the webcam?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can see Vlora Bay, the Lungomare promenade, the Ionian Sea, Sazan Island, Karaburun Peninsula, the port, ferries, yachts, paragliders, sunsets and daily waterfront life."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is the camera located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The camera overlooks Vlora Bay near Lungomare. The precise location is not shared for privacy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can my business sponsor the live cam?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Businesses in tourism, hospitality, travel, real estate and related sectors can contact Vlora Bay Livecam by email."
+            }
+          }
+        ]
       }
-    },
-    "publication": {
-      "@type": "BroadcastEvent",
-      "isLiveBroadcast": true,
-      "startDate": "2026-04-09T00:00:00+02:00"
-    }
+    ]
   }
   </script>
 
-  <!-- Google Analytics tag (unchanged). -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2DHKJN5XR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-S2DHKJN5XR');
+
+    function trackClick(eventName, placement) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          placement: placement || 'unknown'
+        });
+      }
+    }
   </script>
 
-  <!-- Styles: reuse the existing palette and layout. -->
   <style>
     :root{
       --bg:#f4f8fc;
@@ -116,9 +214,7 @@
       background:#eef4f9;color:var(--text);border:1px solid var(--line);
     }
 
-    .hero{
-      padding:22px 0 10px;
-    }
+    .hero{padding:22px 0 10px}
     .hero-shell{
       border-radius:30px;
       overflow:hidden;
@@ -135,9 +231,7 @@
       min-height:600px;
       align-items:end;
     }
-    .chips{
-      display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;
-    }
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
     .chip{
       padding:8px 13px;
       border-radius:999px;
@@ -161,9 +255,7 @@
       color:rgba(255,255,255,.94);
       font-size:1.08rem;
     }
-    .hero-actions{
-      display:flex;flex-wrap:wrap;gap:12px;
-    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
 
     .player-card{
       width:100%;
@@ -193,14 +285,8 @@
       aspect-ratio:16/9;
       background:#0e2438;
     }
-    .player-wrap iframe{
-      width:100%;height:100%;border:0;display:block;
-    }
-    .player-note{
-      margin-top:10px;
-      color:#edf6ff;
-      font-size:.95rem;
-    }
+    .player-wrap iframe{width:100%;height:100%;border:0;display:block}
+    .player-note{margin-top:10px;color:#edf6ff;font-size:.95rem}
 
     .thumb-strip{
       display:grid;
@@ -217,17 +303,8 @@
       overflow:hidden;
       box-shadow:0 10px 24px rgba(16,48,77,.05);
     }
-    .thumb img{
-      width:100%;
-      height:145px;
-      object-fit:cover;
-    }
-    .thumb span{
-      display:block;
-      padding:12px 14px;
-      font-weight:800;
-      font-size:1rem;
-    }
+    .thumb img{width:100%;height:145px;object-fit:cover}
+    .thumb span{display:block;padding:12px 14px;font-weight:800;font-size:1rem}
 
     .facts{
       display:grid;
@@ -244,20 +321,10 @@
       padding:16px 18px;
       box-shadow:0 8px 22px rgba(16,48,77,.04);
     }
-    .fact b{
-      display:block;
-      color:var(--muted);
-      font-size:.9rem;
-      margin-bottom:6px;
-    }
-    .fact span{
-      font-weight:800;
-      font-size:1.04rem;
-    }
+    .fact b{display:block;color:var(--muted);font-size:.9rem;margin-bottom:6px}
+    .fact span{font-weight:800;font-size:1.04rem}
 
-    .section{
-      padding:16px 0;
-    }
+    .section{padding:16px 0}
     .grid-2{
       display:grid;
       grid-template-columns:1.05fr .95fr;
@@ -270,30 +337,12 @@
       padding:24px;
       box-shadow:var(--shadow);
     }
-    h2{
-      margin:0 0 12px;
-      font-size:1.85rem;
-      line-height:1.08;
-      color:var(--text);
-    }
-    .card p{
-      margin:0 0 12px;
-      font-size:1.02rem;
-      color:#314c67;
-    }
+    h2{margin:0 0 12px;font-size:1.85rem;line-height:1.08;color:var(--text)}
+    .card p{margin:0 0 12px;font-size:1.02rem;color:#314c67}
     .muted{color:var(--muted)!important}
 
-    .side-image{
-      margin-top:12px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid var(--line);
-    }
-    .side-image img{
-      width:100%;
-      height:280px;
-      object-fit:cover;
-    }
+    .side-image{margin-top:12px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+    .side-image img{width:100%;height:280px;object-fit:cover}
 
     .wide-banner{
       border-radius:28px;
@@ -305,27 +354,11 @@
         linear-gradient(180deg, rgba(8,20,30,.12) 0%, rgba(8,20,30,.50) 100%),
         url('20260324_174312.jpg') center/cover no-repeat;
     }
-    .wide-content{
-      padding:28px;
-      color:#fff;
-      max-width:760px;
-    }
-    .wide-content h2{
-      color:#fff;
-      font-size:2rem;
-      margin-bottom:10px;
-    }
-    .wide-content p{
-      color:rgba(255,255,255,.94);
-      margin:0;
-      font-size:1.02rem;
-    }
+    .wide-content{padding:28px;color:#fff;max-width:760px}
+    .wide-content h2{color:#fff;font-size:2rem;margin-bottom:10px}
+    .wide-content p{color:rgba(255,255,255,.94);margin:0;font-size:1.02rem}
 
-    .features{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .feature{
       background:rgba(255,255,255,.88);
       border:1px solid var(--line);
@@ -333,23 +366,10 @@
       overflow:hidden;
       box-shadow:0 10px 26px rgba(16,48,77,.05);
     }
-    .feature img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-    }
-    .feature .pad{
-      padding:18px;
-    }
-    .feature h3{
-      margin:0 0 8px;
-      font-size:1.2rem;
-      color:var(--text);
-    }
-    .feature p{
-      margin:0;
-      color:var(--muted);
-    }
+    .feature img{width:100%;height:180px;object-fit:cover}
+    .feature .pad{padding:18px}
+    .feature h3{margin:0 0 8px;font-size:1.2rem;color:var(--text)}
+    .feature p{margin:0;color:var(--muted)}
 
     .map-box{
       border-radius:18px;
@@ -358,13 +378,9 @@
       height:320px;
       background:#dbe8f2;
     }
-    .map-box iframe{
-      width:100%;height:100%;border:0;display:block;
-    }
+    .map-box iframe{width:100%;height:100%;border:0;display:block}
 
-    .footer{
-      padding:18px 0 42px;
-    }
+    .footer{padding:18px 0 42px}
     .footer-box{
       background:rgba(255,255,255,.88);
       border:1px solid var(--line);
@@ -373,43 +389,50 @@
       box-shadow:0 10px 24px rgba(16,48,77,.05);
       color:var(--muted);
     }
-    .footer-box b{
-      color:var(--text);
+    .footer-box b{color:var(--text)}
+
+    .mobile-watch{
+      display:none;
+      position:fixed;
+      left:14px;
+      right:14px;
+      bottom:14px;
+      z-index:80;
+      padding:14px 18px;
+      text-align:center;
+      border-radius:999px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:900;
+      box-shadow:0 14px 34px rgba(247,104,60,.34);
     }
 
-    /* Responsive tweaks */
     @media (max-width: 980px){
       .hero-inner,
       .grid-2,
       .facts,
       .features,
-      .thumb-strip{
-        grid-template-columns:1fr 1fr;
-      }
+      .thumb-strip{grid-template-columns:1fr 1fr}
       .player-card{max-width:none}
     }
 
     @media (max-width: 720px){
+      body{padding-bottom:76px}
       .hero-inner,
       .grid-2,
       .facts,
       .features,
-      .thumb-strip{
-        grid-template-columns:1fr;
-      }
-      .hero-inner{
-        min-height:auto;
-        padding:22px;
-      }
+      .thumb-strip{grid-template-columns:1fr}
+      .hero-inner{min-height:auto;padding:22px}
       .navlinks{display:none}
       h1{font-size:2.4rem}
       h2{font-size:1.55rem}
+      .mobile-watch{display:block}
     }
   </style>
 </head>
 <body>
 
-  <!-- Top navigation bar with the official brand name and links to sections. -->
   <div class="topbar">
     <div class="container nav">
       <div class="brand">Vlora Bay Livecam</div>
@@ -420,12 +443,12 @@
         <a href="#location">Location</a>
         <a href="#sponsor">Sponsor</a>
         <a href="#contact">Contact</a>
+        <a href="#privacy">Privacy</a>
       </div>
-      <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener">Watch in 4K on YouTube</a>
+      <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','header_button')">Watch in 4K on YouTube</a>
     </div>
   </div>
 
-  <!-- Hero section with a live preview and call to action. -->
   <section class="hero" id="live">
     <div class="container">
       <div class="hero-shell">
@@ -438,10 +461,10 @@
             </div>
             <h1>Vlora Bay Livecam – 4K live views of Vlore, Albania</h1>
             <p>
-              See Vlore from above: watch Vlora Bay, the Lungomare promenade, the Ionian Sea, Sazan Island and the Karaburun Peninsula in real time. Our 4K coastal webcam streams 24/7, capturing ferries, yachts, paragliders, sunsets and daily waterfront life【291363558989628†L108-L110】【614438075201342†L62-L74】.
+              See Vlore from above: watch Vlora Bay, the Lungomare promenade, the Ionian Sea, Sazan Island and the Karaburun Peninsula in real time. Our 4K coastal webcam streams 24/7, capturing ferries, yachts, paragliders, sunsets and daily waterfront life.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener">Watch full stream in 4K</a>
+              <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','hero_button')">Watch full stream in 4K</a>
               <a class="btn btn-soft" href="#about">Explore this view</a>
             </div>
           </div>
@@ -452,7 +475,7 @@
               <div>Full experience on YouTube</div>
             </div>
             <div class="player-wrap">
-              <iframe src="https://www.youtube.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q&autoplay=1&mute=1" title="Vlora Bay Livecam live stream" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q&autoplay=1&mute=1" title="Vlora Bay Livecam live stream" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="player-note">
               This is a small preview. The full 4K experience and live chat are available on our YouTube channel.
@@ -463,27 +486,25 @@
     </div>
   </section>
 
-  <!-- Thumbnail strip showing different perspectives. -->
   <div class="thumb-strip">
     <div class="thumb">
-      <img src="20260324_174207.jpg" alt="View over Vlora Bay from the livecam">
+      <img src="20260324_174207.jpg" alt="View over Vlora Bay from the livecam" width="800" height="450" loading="lazy" decoding="async">
       <span>Vlora Bay</span>
     </div>
     <div class="thumb">
-      <img src="20260324_174312.jpg" alt="Sunset over Sazan Island captured by the livecam">
+      <img src="20260324_174312.jpg" alt="Sunset over Sazan Island captured by the Vlora Bay Livecam" width="800" height="450" loading="lazy" decoding="async">
       <span>Sazan sunset</span>
     </div>
     <div class="thumb">
-      <img src="20260324_174420.jpg" alt="Open sea and port activity in Vlore">
+      <img src="20260324_174420.jpg" alt="Open sea and port activity in Vlore" width="800" height="450" loading="lazy" decoding="async">
       <span>Open sea & port</span>
     </div>
     <div class="thumb">
-      <img src="20260324_175722.jpg" alt="Lungomare promenade and city detail along the waterfront">
+      <img src="20260324_175722.jpg" alt="Lungomare promenade and city detail along the waterfront" width="800" height="450" loading="lazy" decoding="async">
       <span>Lungomare detail</span>
     </div>
   </div>
 
-  <!-- Quick facts section for key location info. -->
   <div class="facts">
     <div class="fact"><b>Location</b><span>Vlore, Albania</span></div>
     <div class="fact"><b>Main view</b><span>Lungomare & bay</span></div>
@@ -491,27 +512,25 @@
     <div class="fact"><b>Highlights</b><span>Sazan, Karaburun, port</span></div>
   </div>
 
-  <!-- About section explaining the purpose and context. -->
   <section class="section" id="about">
     <div class="container grid-2">
       <div class="card">
         <h2>About this live webcam in Vlore</h2>
-        <p><strong>Vlora Bay Livecam</strong> is a 4K coastal webcam streaming live from Vlore, Albania. The camera captures the curve of Vlora Bay, the Lungomare promenade, changing sea conditions, ferries, port movement, sunsets and clear views toward Sazan Island【291363558989628†L108-L110】【614438075201342†L62-L74】.</p>
+        <p><strong>Vlora Bay Livecam</strong> is a 4K coastal webcam streaming live from Vlore, Albania. The camera captures the curve of Vlora Bay, the Lungomare promenade, changing sea conditions, ferries, port movement, sunsets and clear views toward Sazan Island.</p>
         <p>We built this site to help people discover the live cam via search engines and webcam directories and to guide them to the full live stream on YouTube. It’s not a throwaway landing page — it provides location context, explains what you’ll see and makes it easy to open the YouTube stream.</p>
         <p class="muted"><em>Popular searches:</em> Vlora Bay live cam, Vlore Albania webcam, Vlore live webcam, Lungomare webcam, Ionian Sea webcam, Sazan Island live view, Karaburun live cam and port webcam Albania.</p>
       </div>
 
       <div class="card">
         <h2>What you can see</h2>
-        <p class="muted">Depending on the preset or angle, the camera can show the bay, open sea, port activity, the Lungomare promenade lined with palm trees and beaches, the sunset line over Sazan Island and the wild Karaburun Peninsula【291363558989628†L108-L110】【614438075201342†L71-L80】.</p>
+        <p class="muted">Depending on the preset or angle, the camera can show the bay, open sea, port activity, the Lungomare promenade lined with palm trees and beaches, the sunset line over Sazan Island and the wild Karaburun Peninsula.</p>
         <div class="side-image">
-          <img src="20260324_175722.jpg" alt="Lungomare promenade and city waterfront in Vlore, Albania">
+          <img src="20260324_175722.jpg" alt="Lungomare promenade and city waterfront in Vlore, Albania" width="800" height="450" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Best time to watch callout. -->
   <section class="section">
     <div class="container">
       <div class="wide-banner">
@@ -523,41 +542,39 @@
     </div>
   </section>
 
-  <!-- Views section highlighting signature angles. -->
   <section class="section" id="views">
     <div class="container features">
       <div class="feature">
-        <img src="20260324_174312.jpg" alt="Sunset view over Sazan Island">
+        <img src="20260324_174312.jpg" alt="Sunset view over Sazan Island" width="800" height="450" loading="lazy" decoding="async">
         <div class="pad">
           <h3>Sazan Island</h3>
-          <p>One of the signature angles. Great for sunsets, cloud light and calm sea atmosphere【614438075201342†L71-L74】.</p>
+          <p>One of the signature angles. Great for sunsets, cloud light and calm sea atmosphere.</p>
         </div>
       </div>
       <div class="feature">
-        <img src="20260324_174420.jpg" alt="Open sea and port activity in Vlore">
+        <img src="20260324_174420.jpg" alt="Open sea and port activity in Vlore" width="800" height="450" loading="lazy" decoding="async">
         <div class="pad">
           <h3>Sea & port activity</h3>
-          <p>Watch ferries, open water, changing weather and the wider coastal frame from the bay side【291363558989628†L108-L110】.</p>
+          <p>Watch ferries, open water, changing weather and the wider coastal frame from the bay side.</p>
         </div>
       </div>
       <div class="feature">
-        <img src="20260324_175722.jpg" alt="Lungomare promenade and city waterfront">
+        <img src="20260324_175722.jpg" alt="Lungomare promenade and city waterfront" width="800" height="450" loading="lazy" decoding="async">
         <div class="pad">
           <h3>Lungomare & city detail</h3>
-          <p>The kilometers‑long promenade lined with palm trees, cafés and beaches – the heartbeat of Vlore【614438075201342†L71-L74】.</p>
+          <p>The kilometers-long promenade lined with palm trees, cafés and beaches – the heartbeat of Vlore.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Approximate location and purpose. -->
   <section class="section" id="location">
     <div class="container grid-2">
       <div class="card">
         <h2>Approximate location</h2>
         <p class="muted">The map below shows an approximate location near Lungomare in Vlore, Albania. We do not expose the precise camera position for privacy.</p>
         <div class="map-box">
-          <iframe title="Approximate map of Vlore Lungomare" src="https://www.openstreetmap.org/export/embed.html?bbox=19.4700%2C40.4300%2C19.5200%2C40.4700&layer=mapnik&marker=40.4500%2C19.4950"></iframe>
+          <iframe title="Approximate map of Vlore Lungomare" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=19.4700%2C40.4300%2C19.5200%2C40.4700&layer=mapnik&marker=40.4500%2C19.4950"></iframe>
         </div>
       </div>
       <div class="card">
@@ -565,75 +582,76 @@
         <p>This page acts as the official search hub for Vlora Bay Livecam. It helps people discover the live stream via search engines and webcam directories and then guides them to the full 4K stream on our YouTube channel.</p>
         <p class="muted">We don’t compete with YouTube. Instead we provide context and directions so viewers know what they’re seeing and where to click for the best experience.</p>
         <div style="margin-top:16px">
-          <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener">Open full stream on YouTube</a>
+          <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','location_section_button')">Open full stream on YouTube</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sponsor section drawing on the media kit metrics and audience interests. -->
   <section class="section" id="sponsor">
     <div class="container grid-2">
       <div class="card">
         <h2>Partner with Vlora Bay Livecam</h2>
-        <p>Our audience loves Albania’s coast and European travel. This makes us a perfect fit for tourism boards, hotels, restaurants, cafés, boat tours, ferries, travel insurance, real estate and relocation services【291363558989628†L108-L110】【614438075201342†L62-L80】.</p>
-        <p>We connect with viewers watching live coastal scenery, sunsets, ferries, yachts, paragliders and daily waterfront life from Vlore, Albania【291363558989628†L108-L110】.</p>
-        <a class="btn btn-main" href="mailto:nightowel03@gmail.com">Sponsor the live cam</a>
+        <p>Our audience loves Albania’s coast and European travel. This makes us a good fit for tourism boards, hotels, restaurants, cafés, boat tours, ferries, travel insurance, real estate and relocation services.</p>
+        <p>We connect with viewers watching live coastal scenery, sunsets, ferries, yachts, paragliders and daily waterfront life from Vlore, Albania.</p>
+        <a class="btn btn-main" href="mailto:nightowel03@gmail.com" onclick="trackClick('sponsor_click','sponsor_button')">Sponsor the live cam</a>
       </div>
       <div class="card">
         <h2>Audience snapshot</h2>
-        <p><strong>Last 28 days:</strong> 13.7 K unique viewers, 23.8 K views and 2 K watch hours<span class="muted"> (YouTube Analytics)</span>.</p>
+        <p><strong>Last 28 days:</strong> 13.7K unique viewers, 23.8K views and 2K watch hours<span class="muted"> (YouTube Analytics)</span>.</p>
         <p><strong>Top countries:</strong> Albania (35.1%), Italy (13%), Germany (9.5%), Greece (6.7%) and United States (4.2%).</p>
         <p><strong>Viewer interests:</strong> Beachbound travellers, travel buffs, tourism, food & drink, home & garden services and trips to Europe.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact section for general inquiries. -->
   <section class="section" id="contact">
     <div class="container grid-2">
       <div class="card">
         <h2>Get in touch</h2>
         <p>Have questions about the live cam, the location or potential partnerships? We’d love to hear from you.</p>
-        <p>Email us at <a href="mailto:nightowel03@gmail.com">nightowel03@gmail.com</a> and we’ll get back to you.</p>
+        <p>Email us at <a href="mailto:nightowel03@gmail.com" onclick="trackClick('contact_click','contact_email')">nightowel03@gmail.com</a> and we’ll get back to you.</p>
       </div>
       <div class="card">
         <h2>Media kit & statistics</h2>
         <p>For a deeper dive into our audience demographics, watch time and engagement metrics, request the full media kit. It includes subscriber growth, viewer age and gender distribution, shopping interests and household income breakdowns.</p>
-        <a class="btn btn-main" href="mailto:nightowel03@gmail.com?subject=Media%20Kit%20Request">Request media kit</a>
+        <a class="btn btn-main" href="mailto:nightowel03@gmail.com?subject=Media%20Kit%20Request" onclick="trackClick('media_kit_click','media_kit_button')">Request media kit</a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ section answering common questions and improving long‑tail search. -->
   <section class="section" id="faq">
     <div class="container card">
       <h2>Frequently asked questions</h2>
-
       <h3>Is Vlora Bay Livecam live 24/7?</h3>
-      <p>Yes. Our camera streams continuously from Vlore, Albania. When you open the full stream on YouTube you’ll see the bay, Lungomare promenade, ferries and sunsets in real time【291363558989628†L108-L110】.</p>
-
+      <p>Yes. Our camera streams continuously from Vlore, Albania. When you open the full stream on YouTube you’ll see the bay, Lungomare promenade, ferries and sunsets in real time.</p>
       <h3>What can I see on the webcam?</h3>
-      <p>You’ll see the Lungomare promenade lined with palm trees, the Ionian Sea, Sazan Island, the Karaburun Peninsula, the port and daily waterfront life including ferries, yachts, paragliders and beach activity【291363558989628†L108-L110】【614438075201342†L71-L80】.</p>
-
+      <p>You’ll see the Lungomare promenade lined with palm trees, the Ionian Sea, Sazan Island, the Karaburun Peninsula, the port and daily waterfront life including ferries, yachts, paragliders and beach activity.</p>
       <h3>Where is the camera located?</h3>
       <p>The camera overlooks Vlora Bay near Lungomare. We don’t disclose the precise location for privacy, but the map above shows the general area.</p>
-
       <h3>Can my business sponsor the live cam?</h3>
-      <p>Yes. Businesses in tourism, hospitality, travel, real estate and related sectors can partner with us. See the sponsor section above or email <a href="mailto:nightowel03@gmail.com">nightowel03@gmail.com</a> for details.</p>
+      <p>Yes. Businesses in tourism, hospitality, travel, real estate and related sectors can partner with us. See the sponsor section above or email <a href="mailto:nightowel03@gmail.com" onclick="trackClick('contact_click','faq_contact_email')">nightowel03@gmail.com</a> for details.</p>
     </div>
   </section>
 
-  <!-- Footer with a small legacy note and subscription call. -->
+  <section class="section" id="privacy">
+    <div class="container card">
+      <h2>Privacy note</h2>
+      <p>This website uses Google Analytics to understand visits, traffic sources and outbound clicks to YouTube, sponsor email and media kit requests. This helps improve the live cam experience and measure whether the website is sending viewers to the YouTube stream.</p>
+      <p class="muted">This website does not ask visitors to create an account, make a payment or submit personal information through a form. Email links open your own email app.</p>
+    </div>
+  </section>
+
   <section class="footer">
     <div class="container footer-box">
       <b>Vlora Bay Livecam</b><br>
-      Live 4K views from Vlore, Albania including the Lungomare promenade, bay, sea, port, Sazan Island and the Karaburun Peninsula【291363558989628†L108-L110】【614438075201342†L62-L80】.<br><br>
-      <a href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener"><b>Watch the full live stream on YouTube</b></a><br>
-      <small>Subscribe to our channel and turn on notifications so you never miss a sunrise or sunset over Vlora Bay.</small><br><br>
-      <small>Also connected with the Ionian Livecam website and YouTube presence.</small>
+      Live 4K views from Vlore, Albania including the Lungomare promenade, bay, sea, port, Sazan Island and the Karaburun Peninsula.<br><br>
+      <a href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','footer_link')"><b>Watch the full live stream on YouTube</b></a><br>
+      <small>Subscribe to our channel and turn on notifications so you never miss a sunrise or sunset over Vlora Bay.</small>
     </div>
   </section>
+
+  <a class="mobile-watch" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','mobile_sticky_button')">▶ Watch Live in 4K</a>
 
 </body>
 </html>
