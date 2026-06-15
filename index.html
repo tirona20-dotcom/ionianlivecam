@@ -42,7 +42,7 @@
           "url": "https://ionianlivecam.com/20260324_174207.jpg"
         },
         "sameAs": [
-          "https://www.youtube.com/@IonianLiveCam"
+          "https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q"
         ]
       },
       {
@@ -79,7 +79,7 @@
         "thumbnailUrl": "https://ionianlivecam.com/20260324_174207.jpg",
         "uploadDate": "2026-04-09T00:00:00+02:00",
         "embedUrl": "https://www.youtube-nocookie.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q",
-        "contentUrl": "https://www.youtube.com/@IonianLiveCam/live",
+        "contentUrl": "https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live",
         "publisher": {
           "@id": "https://ionianlivecam.com/#organization"
         },
@@ -236,6 +236,14 @@
       background:var(--accent);
       color:#fff;
       box-shadow:var(--shadow);
+      transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+    }
+
+    .btn-main:hover,
+    .btn-main:focus-visible{
+      transform:translateY(-2px);
+      background:#e9542d;
+      box-shadow:0 16px 34px rgba(247,104,60,.3);
     }
 
     .btn-soft{
@@ -332,10 +340,29 @@
       overflow:hidden;
       aspect-ratio:16/9;
       background:#0e2438;
+      position:relative;
+      display:block;
+      isolation:isolate;
     }
 
-    .player-wrap iframe{width:100%;height:100%;border:0;display:block}
+    .player-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+    .player-wrap::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,18,29,.04),rgba(5,18,29,.52))}
+    .player-wrap:hover img{transform:scale(1.035)}
+    .play-launch{position:absolute;inset:0;z-index:2;display:grid;place-items:center;text-align:center;padding:20px;color:#fff}
+    .play-button{width:78px;height:56px;border-radius:16px;display:grid;place-items:center;margin:0 auto 12px;background:#ff0033;box-shadow:0 14px 36px rgba(0,0,0,.38);font-size:1.55rem;line-height:1;transition:transform .2s ease}
+    .player-wrap:hover .play-button{transform:scale(1.08)}
+    .play-launch strong{display:block;font-size:1.2rem;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+    .play-launch small{display:block;margin-top:4px;font-size:.92rem;color:rgba(255,255,255,.9)}
     .player-note{margin-top:10px;color:#edf6ff;font-size:.95rem}
+
+    .youtube-proof{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:14px;color:rgba(255,255,255,.92);font-size:.9rem;font-weight:700}
+    .conversion-bar{margin:18px auto 4px;max-width:var(--max);padding:0 16px}
+    .conversion-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 22px;border-radius:20px;color:#fff;background:#102e49;box-shadow:var(--shadow)}
+    .conversion-inner strong{display:block;font-size:1.08rem}
+    .conversion-inner span{color:#cbdbe8;font-size:.94rem}
+    .conversion-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn-youtube{background:#ff0033;color:#fff}
+    .btn-outline{border:1px solid rgba(255,255,255,.35);color:#fff}
 
     .thumb-strip{
       display:grid;
@@ -538,6 +565,9 @@
       h1{font-size:2.4rem}
       h2{font-size:1.55rem}
       .mobile-watch{display:block}
+      .conversion-inner{align-items:flex-start;flex-direction:column}
+      .conversion-actions{width:100%}
+      .conversion-actions .btn{flex:1}
     }
   </style>
 </head>
@@ -555,7 +585,7 @@
         <a href="#contact">Contact</a>
         <a href="#privacy">Privacy</a>
       </div>
-      <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','header_button')">Watch in 4K on YouTube</a>
+      <a class="btn btn-main" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','header_button')">Watch live on YouTube</a>
     </div>
   </div>
 
@@ -569,32 +599,44 @@
               <span class="chip">Lungomare • Ionian Sea • Sazan</span>
               <span class="chip">4K coastal webcam</span>
             </div>
-            <h1>Vlora Bay Livecam – 4K live views of Vlore, Albania</h1>
+            <h1>Vlora Bay is live now on YouTube</h1>
             <p>
-              See Vlore from above: watch Vlora Bay, the Lungomare promenade, the Ionian Sea, Sazan Island and the Karaburun Peninsula in real time. Our 4K coastal webcam streams 24/7, capturing ferries, yachts, paragliders, sunsets and daily waterfront life.
+              Open the full 4K stream to watch Vlora Bay, the Lungomare promenade, Sazan Island and the Karaburun Peninsula in real time. Join the live chat and subscribe for every sunset.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','hero_button')">Watch full stream in 4K</a>
-              <a class="btn btn-soft" href="#about">Explore this view</a>
+              <a class="btn btn-main" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','hero_button')">&#9654; Watch live on YouTube</a>
+              <a class="btn btn-soft" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q?sub_confirmation=1" target="_blank" rel="noopener" onclick="trackClick('youtube_subscribe_click','hero_button')">Subscribe to the channel</a>
             </div>
+            <div class="youtube-proof"><span>Live 24/7</span><span>4K quality</span><span>Live chat</span><span>Sunsets over Sazan</span></div>
           </div>
 
           <div class="player-card">
             <div class="player-top">
-              <div><span class="live-dot"></span>Live preview</div>
-              <div>Full experience on YouTube</div>
+              <div><span class="live-dot"></span>Live now</div>
+              <div>Opens on YouTube</div>
             </div>
-            <div class="player-wrap">
-              <iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCKPyvPeJcrT8vAiifUbay1Q&autoplay=1&mute=1" title="Vlora Bay Livecam live stream" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-            </div>
+            <a class="player-wrap" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" aria-label="Watch Vlora Bay Livecam on YouTube" onclick="trackClick('youtube_live_click','hero_preview')">
+              <img src="20260324_174207.jpg" alt="Sunset view across Vlora Bay from the live camera" width="800" height="450" fetchpriority="high">
+              <span class="play-launch"><span><span class="play-button">&#9654;</span><strong>Watch the live camera</strong><small>4K stream and live chat on YouTube</small></span></span>
+            </a>
             <div class="player-note">
-              This is a small preview. The full 4K experience and live chat are available on our YouTube channel.
+              The stream plays on YouTube so you get full quality, live chat and easy access to the channel.
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="conversion-bar" aria-label="Watch and subscribe on YouTube">
+    <div class="conversion-inner">
+      <div><strong>Continue to Vlora Bay Livecam on YouTube</strong><span>Watch in 4K, join the conversation and come back for the next sunset.</span></div>
+      <div class="conversion-actions">
+        <a class="btn btn-youtube" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','conversion_bar')">Watch live</a>
+        <a class="btn btn-outline" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q?sub_confirmation=1" target="_blank" rel="noopener" onclick="trackClick('youtube_subscribe_click','conversion_bar')">Subscribe</a>
+      </div>
+    </div>
+  </div>
 
   <div class="thumb-strip">
     <div class="thumb">
@@ -627,7 +669,7 @@
       <div class="card">
         <h2>About this live webcam in Vlore</h2>
         <p><strong>Vlora Bay Livecam</strong> is a 4K coastal webcam streaming live from Vlore, Albania. The camera captures the curve of Vlora Bay, the Lungomare promenade, changing sea conditions, ferries, port movement, sunsets and clear views toward Sazan Island.</p>
-        <p>We built this site to help people discover the live cam via search engines and webcam directories and to guide them to the full live stream on YouTube. It’s not a throwaway landing page — it provides location context, explains what you’ll see and makes it easy to open the YouTube stream.</p>
+        <p>Use this guide to understand the view, then open the full live stream on YouTube for 4K quality, live chat and the latest moments from the bay.</p>
         <p class="muted"><em>Popular searches:</em> Vlora Bay live cam, Vlore Albania webcam, Vlore live webcam, Lungomare webcam, Ionian Sea webcam, Sazan Island live view, Karaburun live cam and port webcam Albania.</p>
       </div>
 
@@ -688,11 +730,11 @@
         </div>
       </div>
       <div class="card">
-        <h2>Why this site exists</h2>
-        <p>This page acts as the official search hub for Vlora Bay Livecam. It helps people discover the live stream via search engines and webcam directories and then guides them to the full 4K stream on our YouTube channel.</p>
-        <p class="muted">We don’t compete with YouTube. Instead we provide context and directions so viewers know what they’re seeing and where to click for the best experience.</p>
+        <h2>Watch the complete live experience</h2>
+        <p>The camera streams on YouTube, where you can select full 4K quality, join the live chat and subscribe to find the channel again whenever you want to check the bay.</p>
+        <p class="muted">This page introduces the location and landmarks. YouTube is the home of the live broadcast.</p>
         <div style="margin-top:16px">
-          <a class="btn btn-main" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','location_section_button')">Open full stream on YouTube</a>
+          <a class="btn btn-main" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','location_section_button')">&#9654; Continue watching on YouTube</a>
         </div>
       </div>
     </div>
@@ -708,8 +750,9 @@
       </div>
       <div class="card">
         <h2>Audience snapshot</h2>
-        <p><strong>Last 28 days:</strong> 13.7K unique viewers, 23.8K views and 2K watch hours<span class="muted"> (YouTube Analytics)</span>.</p>
-        <p><strong>Top countries:</strong> Albania (35.1%), Italy (13%), Germany (9.5%), Greece (6.7%) and United States (4.2%).</p>
+        <p><strong>Last 28 days:</strong> 17.8K unique viewers, 28.0K views and 2.5K watch hours<span class="muted"> (YouTube Analytics, report created June 15, 2026)</span>.</p>
+        <p><strong>Channel:</strong> 1.8K lifetime subscribers and 516 published videos.</p>
+        <p><strong>Top countries:</strong> Albania (33.2%), Italy (13.5%), Germany (11.7%), Greece (6.7%) and United States (5.1%).</p>
         <p><strong>Viewer interests:</strong> Beachbound travellers, travel buffs, tourism, food & drink, home & garden services and trips to Europe.</p>
       </div>
     </div>
@@ -759,12 +802,12 @@
     <div class="container footer-box">
       <b>Vlora Bay Livecam</b><br>
       Live 4K views from Vlore, Albania including the Lungomare promenade, bay, sea, port, Sazan Island and the Karaburun Peninsula.<br><br>
-      <a href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','footer_link')"><b>Watch the full live stream on YouTube</b></a><br>
+      <a href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','footer_link')"><b>Watch the full live stream on YouTube</b></a><br>
       <small>Subscribe to our channel and turn on notifications so you never miss a sunrise or sunset over Vlora Bay.</small>
     </div>
   </section>
 
-  <a class="mobile-watch" href="https://www.youtube.com/@IonianLiveCam/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','mobile_sticky_button')">▶ Watch Live in 4K</a>
+  <a class="mobile-watch" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" onclick="trackClick('youtube_live_click','mobile_sticky_button')">&#9654; Watch live on YouTube</a>
 
 </body>
 </html>
