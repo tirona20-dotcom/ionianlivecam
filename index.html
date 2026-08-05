@@ -616,7 +616,7 @@
               <div>Opens on YouTube</div>
             </div>
             <a class="player-wrap" href="https://www.youtube.com/channel/UCKPyvPeJcrT8vAiifUbay1Q/live" target="_blank" rel="noopener" aria-label="Watch Vlora Bay Livecam on YouTube" onclick="trackClick('youtube_live_click','hero_preview')">
-              <img id="windy-live-snapshot" src="https://pub-b08b5e8f0f6e49a885dcb65591be78ea.r2.dev/latest.jpg" alt="Current live webcam snapshot over Vlora Bay, Albania" width="800" height="450" fetchpriority="high">
+              <img id="windy-live-snapshot" src="https://pub-b08b5e8f0f6e49a885dcb65591be78ea.r2.dev/latest.jpg" alt="Current live webcam snapshot over Vlora Bay, Albania" width="800" height="450" fetchpriority="high" onerror="this.onerror=null;this.src='20260324_174207.jpg';">
               <span class="play-launch"><span><span class="play-button">&#9654;</span><strong>Watch the live camera</strong><small>4K stream and live chat on YouTube</small></span></span>
             </a>
             <div class="player-note">
@@ -812,16 +812,55 @@
 
   <script>
     (function () {
-      const image = document.getElementById('windy-live-snapshot');
-      if (!image) return;
+      const visibleImage = document.getElementById('windy-live-snapshot');
+      if (!visibleImage) return;
 
       const baseUrl = 'https://pub-b08b5e8f0f6e49a885dcb65591be78ea.r2.dev/latest.jpg';
+      const refreshEveryMs = 300000;
+      const retryAfterMs = 15000;
+      let refreshInProgress = false;
+      let retryTimer = null;
 
-      function refreshLiveSnapshot() {
-        image.src = baseUrl + '?t=' + Date.now();
+      function scheduleRetry() {
+        if (retryTimer) window.clearTimeout(retryTimer);
+        retryTimer = window.setTimeout(loadNextSnapshot, retryAfterMs);
       }
 
-      window.setInterval(refreshLiveSnapshot, 300000);
+      function loadNextSnapshot() {
+        if (refreshInProgress) return;
+        refreshInProgress = true;
+
+        const candidate = new Image();
+        candidate.decoding = 'async';
+
+        candidate.onload = function () {
+          const commit = function () {
+            if (candidate.naturalWidth > 0 && candidate.naturalHeight > 0) {
+              visibleImage.src = candidate.src;
+            }
+            refreshInProgress = false;
+          };
+
+          if (typeof candidate.decode === 'function') {
+            candidate.decode().then(commit).catch(function () {
+              refreshInProgress = false;
+              scheduleRetry();
+            });
+          } else {
+            commit();
+          }
+        };
+
+        candidate.onerror = function () {
+          refreshInProgress = false;
+          scheduleRetry();
+        };
+
+        candidate.src = baseUrl + '?t=' + Date.now();
+      }
+
+      window.setTimeout(loadNextSnapshot, 10000);
+      window.setInterval(loadNextSnapshot, refreshEveryMs);
     })();
   </script>
 
